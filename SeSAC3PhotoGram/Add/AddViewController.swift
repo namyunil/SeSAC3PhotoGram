@@ -7,7 +7,7 @@
 
 import UIKit
 import SeSACFramework
-
+import Kingfisher
 //Protocol 값 전달 1.
 protocol PassDataDelegate {
     func receiveDate(date: Date)
@@ -17,13 +17,16 @@ protocol PassImageDelegate {
     func receiveImage(image: UIImage)
 }
 
+protocol PassImageStringDelegate {
+    func receiveImage(image: String)
+}
 /*
 protocol PassImageDataDelegate {
     func receiveData(name: String)
 }
 */
-//Naming과 Conveition의 측면에서 MainViewController, DetailViewController는 -> 상징적인 의미이기에 지양하자..!
 
+//Naming과 Conveition의 측면에서 MainViewController, DetailViewController는 -> 상징적인 의미이기에 지양하자..!
 class AddViewController: BaseViewController { // 기능에 대한 분리..!
 
     
@@ -36,8 +39,11 @@ class AddViewController: BaseViewController { // 기능에 대한 분리..!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ClassOpenExample.publicExample()
-        ClassPublicExample.publicExample()
+//        APIService.shared.callRequest(query: "sky")
+        
+      
+//        ClassOpenExample.publicExample()
+//        ClassPublicExample.publicExample()
 //        ClassPublicExample.internalExample()
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(selectImageNotificationObserver), name: NSNotification.Name("SelectImage"), object: nil)
@@ -47,6 +53,11 @@ class AddViewController: BaseViewController { // 기능에 대한 분리..!
         //이미지가 벗어나는 것은 clips to bound를 하지않아서..! 이 부분에 대해서 고려해주면 된다
     }
 
+    
+    deinit {
+        print("deinit", self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         
         print(#function)
@@ -54,7 +65,7 @@ class AddViewController: BaseViewController { // 기능에 대한 분리..!
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(selectImageNotificationObserver), name: .selectImage, object: nil)
         
-        sesacShowActivityViewController(image: UIImage(systemName: "star")!, url: "hello", text: "hi")
+        //sesacShowActivityViewController(image: UIImage(systemName: "star")!, url: "hello", text: "hi")
         //sesacShowAlert(title: <#T##String#>, message: <#T##String#>, ButtonTitle: <#T##String#>, ButtonAction: <#T##(UIAlertAction) -> Void#>)
     }
     
@@ -80,28 +91,51 @@ class AddViewController: BaseViewController { // 기능에 대한 분리..!
         }
     }
     
-
+    
+    
+    func showAlert() {
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let gallery = UIAlertAction(title: "갤러리에서 가져오기", style: .default)
+        let web = UIAlertAction(title: "웹에서 가져오기", style: .default) { UIAlertAction in
+            let vc = AssignmentSearchViewController()
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(gallery)
+        alert.addAction(web)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
     
     @objc func searchButtonClicked() {
        
+        showAlert()
         
-        let word = ["Apple", "Banana", "Cookie", "Cake", "Sky"]
         
-        NotificationCenter.default.post(name: NSNotification.Name("RecommanKeyword"), object: nil, userInfo: ["word" : word.randomElement()! ])
         
-       
-//        present(SearchViewController(), animated: true)
-        // 단순 present -> viewWillAppear 한 번만 / NavigationController 기준으로 push 혹은 fullscreen -> 여러번
-        navigationController?.pushViewController(SearchViewController(), animated: true)
         
+//
+//        let word = ["Apple", "Banana", "Cookie", "Cake", "Sky"]
+//
+//        NotificationCenter.default.post(name: NSNotification.Name("RecommanKeyword"), object: nil, userInfo: ["word" : word.randomElement()! ])
+//
+//
+////        present(SearchViewController(), animated: true)
+//        // 단순 present -> viewWillAppear 한 번만 / NavigationController 기준으로 push 혹은 fullscreen -> 여러번
+//        navigationController?.pushViewController(SearchViewController(), animated: true)
+//
     }
     
     
     @objc func dateButtonClicked() {
         //Protocol 값 전달 5.
-        let vc = DateViewController()
-        vc.delegate = self
+//        let vc = DateViewController()
+//        vc.delegate = self
         
+        let vc = HomeViewController()
         navigationController?.pushViewController(vc, animated: true)
 //        navigationController?.pushViewController(DateViewController(), animated: true)
         
@@ -147,6 +181,8 @@ class AddViewController: BaseViewController { // 기능에 대한 분리..!
         mainView.searchProtocolButton.addTarget(self, action: #selector(searchProtocolButtonClicked), for: .touchUpInside)
         mainView.titleButton.addTarget(self, action: #selector(titleButtonClicked), for: .touchUpInside)
         mainView.titleClosureButton.addTarget(self, action: #selector(titleClosuerButtonClicked), for: .touchUpInside)
+        
+        
 
 //        view.addSubview(photoImageView)
 //        view.addSubview(searchButton)
@@ -185,6 +221,16 @@ extension AddViewController: PassDataDelegate {
 extension AddViewController: PassImageDelegate {
     func receiveImage(image: UIImage) {
         mainView.photoImageView.image = image
+    }
+    
+    
+}
+
+extension AddViewController: PassImageStringDelegate {
+    func receiveImage(image: String) {
+        print(image)
+        
+        mainView.photoImageView.kf.setImage(with: URL(string: image))
     }
     
     

@@ -41,11 +41,12 @@ class SearchView: BaseView {
     override func configureView() {
         addSubview(searchBar)
         addSubview(collectionView)
+        
     }
     
     override func setConstraints() {
         searchBar.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview()
+            make.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
         }
         
         collectionView.snp.makeConstraints { make in

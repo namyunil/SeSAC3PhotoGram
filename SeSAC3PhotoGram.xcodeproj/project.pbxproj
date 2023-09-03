@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F3E06562AA0BC7F00D706F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E06552AA0BC7F00D706F4 /* HomeViewController.swift */; };
+		9F3E06582AA0BD7C00D706F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E06572AA0BD7C00D706F4 /* HomeView.swift */; };
+		9F4A69582AA493DD00D8ED20 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9F4A69572AA493DD00D8ED20 /* Alamofire */; };
+		9F4A695B2AA493E800D8ED20 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9F4A695A2AA493E800D8ED20 /* SwiftyJSON */; };
+		9F4A695E2AA493F400D8ED20 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9F4A695D2AA493F400D8ED20 /* Kingfisher */; };
+		9F4A69602AA4977800D8ED20 /* AssignmentSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4A695F2AA4977800D8ED20 /* AssignmentSearchViewController.swift */; };
+		9F57CE4D2A9EC74100A7B074 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57CE4C2A9EC74100A7B074 /* APIService.swift */; };
+		9F57CE4F2A9EEBD800A7B074 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57CE4E2A9EEBD800A7B074 /* URLSessionViewController.swift */; };
 		9F88F9A82A9D7BEE0052440E /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F88F9A72A9D7BEE0052440E /* Notification+Extension.swift */; };
 		9F88F9AA2A9D7C780052440E /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F88F9A92A9D7C780052440E /* DateView.swift */; };
 		9F88F9AC2A9D7DBC0052440E /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F88F9AB2A9D7DBC0052440E /* DateViewController.swift */; };
@@ -63,6 +71,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9F3E06552AA0BC7F00D706F4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9F3E06572AA0BD7C00D706F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9F4A695F2AA4977800D8ED20 /* AssignmentSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentSearchViewController.swift; sourceTree = "<group>"; };
+		9F57CE4C2A9EC74100A7B074 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9F57CE4E2A9EEBD800A7B074 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
 		9F88F9A72A9D7BEE0052440E /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		9F88F9A92A9D7C780052440E /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		9F88F9AB2A9D7DBC0052440E /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
@@ -92,14 +105,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F4A69582AA493DD00D8ED20 /* Alamofire in Frameworks */,
 				9F9806AC2A9C223A001265F8 /* SnapKit in Frameworks */,
+				9F4A695B2AA493E800D8ED20 /* SwiftyJSON in Frameworks */,
 				9F88F9E12A9D9BC40052440E /* SeSACFramework.framework in Frameworks */,
+				9F4A695E2AA493F400D8ED20 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F3E06542AA0BC6E00D706F4 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				9F3E06552AA0BC7F00D706F4 /* HomeViewController.swift */,
+				9F3E06572AA0BD7C00D706F4 /* HomeView.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		9F57CE4B2A9EC72C00A7B074 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9F57CE4C2A9EC74100A7B074 /* APIService.swift */,
+				9F57CE4E2A9EEBD800A7B074 /* URLSessionViewController.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		9F88F9A62A9D7BD70052440E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +180,8 @@
 		9F9806952A9C221D001265F8 /* SeSAC3PhotoGram */ = {
 			isa = PBXGroup;
 			children = (
+				9F3E06542AA0BC6E00D706F4 /* New Group */,
+				9F57CE4B2A9EC72C00A7B074 /* Network */,
 				9F88F9A62A9D7BD70052440E /* Extension */,
 				9F9806B52A9C2FCA001265F8 /* Add */,
 				9F9806B02A9C2731001265F8 /* Search */,
@@ -176,6 +212,7 @@
 				9F9806B12A9C274B001265F8 /* SearchViewController.swift */,
 				9F9806B82A9C3373001265F8 /* SearchView.swift */,
 				9F9806BC2A9C3803001265F8 /* SearchCollectionViewCell.swift */,
+				9F4A695F2AA4977800D8ED20 /* AssignmentSearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -212,6 +249,9 @@
 			name = SeSAC3PhotoGram;
 			packageProductDependencies = (
 				9F9806AB2A9C223A001265F8 /* SnapKit */,
+				9F4A69572AA493DD00D8ED20 /* Alamofire */,
+				9F4A695A2AA493E800D8ED20 /* SwiftyJSON */,
+				9F4A695D2AA493F400D8ED20 /* Kingfisher */,
 			);
 			productName = SeSAC3PhotoGram;
 			productReference = 9F9806932A9C221D001265F8 /* SeSAC3PhotoGram.app */;
@@ -243,6 +283,9 @@
 			mainGroup = 9F98068A2A9C221D001265F8;
 			packageReferences = (
 				9F9806AA2A9C223A001265F8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				9F4A69562AA493DD00D8ED20 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9F4A69592AA493E800D8ED20 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				9F4A695C2AA493F400D8ED20 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 9F9806942A9C221D001265F8 /* Products */;
 			projectDirPath = "";
@@ -303,12 +346,17 @@
 				9F88F9AC2A9D7DBC0052440E /* DateViewController.swift in Sources */,
 				9F9806BD2A9C3803001265F8 /* SearchCollectionViewCell.swift in Sources */,
 				9F88F9AA2A9D7C780052440E /* DateView.swift in Sources */,
+				9F57CE4F2A9EEBD800A7B074 /* URLSessionViewController.swift in Sources */,
 				9F9806AF2A9C2425001265F8 /* BaseViewController.swift in Sources */,
 				9F9806B92A9C3373001265F8 /* SearchView.swift in Sources */,
+				9F4A69602AA4977800D8ED20 /* AssignmentSearchViewController.swift in Sources */,
 				9F88F9EB2A9DC7500052440E /* WebViewController.swift in Sources */,
 				9F9806B42A9C2EC9001265F8 /* BaseView.swift in Sources */,
+				9F3E06582AA0BD7C00D706F4 /* HomeView.swift in Sources */,
+				9F3E06562AA0BC7F00D706F4 /* HomeViewController.swift in Sources */,
 				9F9806972A9C221D001265F8 /* AppDelegate.swift in Sources */,
 				9F9806992A9C221D001265F8 /* SceneDelegate.swift in Sources */,
+				9F57CE4D2A9EC74100A7B074 /* APIService.swift in Sources */,
 				9F88F9E52A9DB53F0052440E /* TitleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +573,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9F4A69562AA493DD00D8ED20 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		9F4A69592AA493E800D8ED20 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		9F4A695C2AA493F400D8ED20 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		9F9806AA2A9C223A001265F8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -536,6 +608,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9F4A69572AA493DD00D8ED20 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F4A69562AA493DD00D8ED20 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		9F4A695A2AA493E800D8ED20 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F4A69592AA493E800D8ED20 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		9F4A695D2AA493F400D8ED20 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F4A695C2AA493F400D8ED20 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		9F9806AB2A9C223A001265F8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9F9806AA2A9C223A001265F8 /* XCRemoteSwiftPackageReference "SnapKit" */;

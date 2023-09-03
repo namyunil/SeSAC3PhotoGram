@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import Kingfisher
 
 class SearchViewController: BaseViewController {
     
@@ -35,7 +38,12 @@ class SearchViewController: BaseViewController {
         //메모리에 addObserver가 먼저 등록되어있어야 post의 값을 전달받을 수 있다..!
         //따라서 아래 코드는 post가 선행(신호를 먼저 보내고) 후 addObserver가 등록되어 정상작동하지 않는다..!
         //post와 addObeserver의 순서는 중요하다..! -> addOsberver가 등록 된 후 Post가 되어야한다..!
+        
         NotificationCenter.default.addObserver(self, selector: #selector(recommandKeywordNotificationObserver), name: NSNotification.Name("RecommendKeyword"), object: nil)
+        
+        //UX를 더 편하게..! 버튼 클릭시 키보드가 바로 보이도록 하는 기능
+        mainView.searchBar.becomeFirstResponder() // 클릭하지않아도 클릭한 것 같은 반응으로..!
+        mainView.searchBar.delegate = self
     }
     
     @objc func recommandKeywordNotificationObserver(notification: NSNotification) {
@@ -58,6 +66,15 @@ class SearchViewController: BaseViewController {
 //        }
 //    }
     
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        mainView.searchBar.resignFirstResponder()
+        //사용자의 Focus가 Searchbar에 없다.
+        //Search 버튼을 눌렀을때 키보드가 내려가는 기능..!
+        // 의도적으로 버튼을 누르지 않은 것과 같은 반응으로..!
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -88,7 +105,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         
         delegate?.receiveImage(image: UIImage(systemName: imageList[indexPath.item])!)
-//        delegate?.receiveData(name: imageList[indexPath.item])
+
         
         dismiss(animated: true)
     }

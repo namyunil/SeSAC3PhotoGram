@@ -96,7 +96,13 @@ class AddViewController: BaseViewController { // 기능에 대한 분리..!
     func showAlert() {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let gallery = UIAlertAction(title: "갤러리에서 가져오기", style: .default)
+        
+        let gallery = UIAlertAction(title: "갤러리에서 가져오기", style: .default) { UIAlertAction in
+            let vc = AssignmentGalleryViewController()
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
         let web = UIAlertAction(title: "웹에서 가져오기", style: .default) { UIAlertAction in
             let vc = AssignmentSearchViewController()
             vc.delegate = self
